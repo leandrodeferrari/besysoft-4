@@ -19,12 +19,12 @@ public class PersonajeRepositoryImpl implements IPersonajeRepository {
 
         this.personajes = new ArrayList<>(
                 Arrays.asList(
-                        new Personaje(1L, "Jacqueline", (byte) 26, 55.7f, "Es una actriz canadiense. Protagonizó la serie Salvation de CBS."),
-                        new Personaje(2L, "Vera", (byte) 86, 70.0f, "Supermodelo que enamoró a Coco Chanel y ahora ha conquistado a Paco Plaza."),
-                        new Personaje(3L, "Christian", (byte) 35, 79.5f, "Es actor, escritor, director, productor y músico. Trabaja en el teatro, peliculas y televisión."),
-                        new Personaje(4L, "Joel", (byte) 48, 90.2f, "Es actor, director y guionista australiano conocido por haber participado en la serie televisiva Teh secret life of us."),
-                        new Personaje(5L, "Sofia", (byte) 29, 69.5f, "Nació en Lauderdale, Florida. Hijan de José F. Daccarett y de Laura Char Canson."),
-                        new Personaje(6L, "Jeremy", (byte) 52, 80.5f, "Es actor, actor de voz, productor y músico estadounidense.")
+                        new Personaje(1L, "Jacqueline", (byte) 26, 55.7d, "Es una actriz canadiense. Protagonizó la serie Salvation de CBS."),
+                        new Personaje(2L, "Vera", (byte) 86, 70.0d, "Supermodelo que enamoró a Coco Chanel y ahora ha conquistado a Paco Plaza."),
+                        new Personaje(3L, "Christian", (byte) 35, 79.5d, "Es actor, escritor, director, productor y músico. Trabaja en el teatro, peliculas y televisión."),
+                        new Personaje(4L, "Joel", (byte) 48, 90.2d, "Es actor, director y guionista australiano conocido por haber participado en la serie televisiva Teh secret life of us."),
+                        new Personaje(5L, "Sofia", (byte) 29, 69.5d, "Nació en Lauderdale, Florida. Hijan de José F. Daccarett y de Laura Char Canson."),
+                        new Personaje(6L, "Jeremy", (byte) 52, 80.5d, "Es actor, actor de voz, productor y músico estadounidense.")
                 )
         );
 

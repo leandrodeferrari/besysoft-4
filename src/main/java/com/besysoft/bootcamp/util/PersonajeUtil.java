@@ -33,7 +33,7 @@ public class PersonajeUtil {
 
     }
 
-    public static void validarPeso(Float peso){
+    public static void validarPeso(Double peso){
 
         if(peso == null){
             throw new IllegalArgumentException("El peso no puede ser nulo.");

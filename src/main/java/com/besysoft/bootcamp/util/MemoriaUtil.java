@@ -63,17 +63,17 @@ public class MemoriaUtil {
         List<Personaje> personajes = new ArrayList<>();
 
         Personaje personaje1 = new Personaje
-                (1L, "Jacqueline", (byte) 26, 55.7f, "Es una actriz canadiense. Protagonizó la serie Salvation de CBS.");
+                (1L, "Jacqueline", (byte) 26, 55.7d, "Es una actriz canadiense. Protagonizó la serie Salvation de CBS.");
         Personaje personaje2 = new Personaje
-                (2L, "Vera", (byte) 86, 70.0f, "Supermodelo que enamoró a Coco Chanel y ahora ha conquistado a Paco Plaza.");
+                (2L, "Vera", (byte) 86, 70.0d, "Supermodelo que enamoró a Coco Chanel y ahora ha conquistado a Paco Plaza.");
         Personaje personaje3 = new Personaje
-                (3L, "Christian", (byte) 35, 79.5f, "Es actor, escritor, director, productor y músico. Trabaja en el teatro, peliculas y televisión.");
+                (3L, "Christian", (byte) 35, 79.5d, "Es actor, escritor, director, productor y músico. Trabaja en el teatro, peliculas y televisión.");
         Personaje personaje4 = new Personaje
-                (4L, "Joel", (byte) 48, 90.2f, "Es actor, director y guionista australiano conocido por haber participado en la serie televisiva Teh secret life of us.");
+                (4L, "Joel", (byte) 48, 90.2d, "Es actor, director y guionista australiano conocido por haber participado en la serie televisiva Teh secret life of us.");
         Personaje personaje5 = new Personaje
-                (5L, "Sofia", (byte) 29, 69.5f, "Nació en Lauderdale, Florida. Hijan de José F. Daccarett y de Laura Char Canson.");
+                (5L, "Sofia", (byte) 29, 69.5d, "Nació en Lauderdale, Florida. Hijan de José F. Daccarett y de Laura Char Canson.");
         Personaje personaje6 = new Personaje
-                (6L, "Jeremy", (byte) 52, 80.5f, "Es actor, actor de voz, productor y músico estadounidense.");
+                (6L, "Jeremy", (byte) 52, 80.5d, "Es actor, actor de voz, productor y músico estadounidense.");
 
         personajes.add(personaje1);
         personajes.add(personaje2);
