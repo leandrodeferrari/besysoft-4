@@ -21,7 +21,7 @@ public class PeliculaSerie implements Serializable {
     @Column(name = "ID", nullable = false)
     private Long id;
 
-    @Column(length = 50, name = "TITULO", nullable = false)
+    @Column(length = 50, name = "TITULO", nullable = false, unique = true)
     private String titulo;
 
     @JsonFormat(pattern = "dd-MM-yyyy")

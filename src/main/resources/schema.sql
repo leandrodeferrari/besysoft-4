@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS peliculas_series(
     GENERO_ID BIGINT NOT NULL,
     CONSTRAINT PK_peliculas_series_id PRIMARY KEY(ID),
     CONSTRAINT FK_peliculas_series_generos_genero_id FOREIGN KEY(GENERO_ID) REFERENCES ejercicio_4.generos(ID),
+    CONSTRAINT UQ_peliculas_series_titulo UNIQUE(TITULO),
 	CONSTRAINT CK_peliculas_series_calificacion CHECK(CALIFICACION <= 5)
 );
 

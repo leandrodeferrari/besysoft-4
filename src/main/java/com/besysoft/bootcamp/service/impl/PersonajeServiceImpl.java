@@ -1,7 +1,7 @@
 package com.besysoft.bootcamp.service.impl;
 
 import com.besysoft.bootcamp.domain.Personaje;
-import com.besysoft.bootcamp.repository.memory.IPersonajeRepository;
+import com.besysoft.bootcamp.repository.database.IPersonajeRepository;
 import com.besysoft.bootcamp.service.IPersonajeService;
 import com.besysoft.bootcamp.util.PersonajeUtil;
 import com.besysoft.bootcamp.util.ValidacionGeneralUtil;
@@ -21,7 +21,21 @@ public class PersonajeServiceImpl implements IPersonajeService {
 
     @Override
     public List<Personaje> buscarPorFiltros(String nombre, Byte edad) {
-        return this.personajeRepository.buscarPorFiltros(nombre, edad);
+
+        if(nombre == null && edad == null){
+            return this.personajeRepository.findAll();
+        }
+
+        if (nombre != null && edad != null){
+            return this.personajeRepository.findAllByNombreAndEdad(nombre, edad);
+        }
+
+        if(nombre != null){
+            return this.personajeRepository.findAllByNombre(nombre);
+        } else {
+            return this.personajeRepository.findAllByEdad(edad);
+        }
+
     }
 
     @Override
@@ -31,7 +45,7 @@ public class PersonajeServiceImpl implements IPersonajeService {
         PersonajeUtil.validarEdad(hasta);
         ValidacionGeneralUtil.validarRangoDeNumeros(desde, hasta);
 
-        return this.personajeRepository.buscarPorEdades(desde, hasta);
+        return this.personajeRepository.findAllByEdadBetween(desde, hasta);
 
     }
 
@@ -39,8 +53,9 @@ public class PersonajeServiceImpl implements IPersonajeService {
     public Personaje crear(Personaje personaje) {
 
         PersonajeUtil.validar(personaje);
+        personaje.setId(null);
 
-        return this.personajeRepository.crear(personaje);
+        return this.personajeRepository.save(personaje);
 
     }
 
@@ -51,7 +66,11 @@ public class PersonajeServiceImpl implements IPersonajeService {
         PersonajeUtil.validar(personaje);
         personaje.setId(id);
 
-        return this.personajeRepository.actualizar(id, personaje);
+        if(!this.personajeRepository.existsById(id)){
+            throw new IllegalArgumentException("No existe personaje con ese ID.");
+        }
+
+        return this.personajeRepository.save(personaje);
 
     }
 

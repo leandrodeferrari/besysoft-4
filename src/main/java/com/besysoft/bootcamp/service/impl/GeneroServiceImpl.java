@@ -1,7 +1,7 @@
 package com.besysoft.bootcamp.service.impl;
 
 import com.besysoft.bootcamp.domain.Genero;
-import com.besysoft.bootcamp.repository.memory.IGeneroRepository;
+import com.besysoft.bootcamp.repository.database.IGeneroRepository;
 import com.besysoft.bootcamp.service.IGeneroService;
 import com.besysoft.bootcamp.util.GeneroUtil;
 import com.besysoft.bootcamp.util.ValidacionGeneralUtil;
@@ -22,19 +22,20 @@ public class GeneroServiceImpl implements IGeneroService {
 
     @Override
     public List<Genero> obtenerTodos() {
-        return this.generoRepository.obtenerTodos();
+        return this.generoRepository.findAll();
     }
 
     @Override
     public Genero crear(Genero genero) {
 
         GeneroUtil.validarNombre(genero.getNombre());
+        genero.setId(null);
 
-        if(this.generoRepository.existePorNombre(genero.getNombre())){
+        if(this.generoRepository.existsByNombre(genero.getNombre())){
             throw new IllegalArgumentException("El genero ya existe.");
         }
 
-        return this.generoRepository.crear(genero);
+        return this.generoRepository.save(genero);
 
     }
 
@@ -45,17 +46,26 @@ public class GeneroServiceImpl implements IGeneroService {
         GeneroUtil.validarNombre(genero.getNombre());
         genero.setId(id);
 
-        if(this.generoRepository.existePorNombre(genero.getNombre())){
+        if(this.generoRepository.existsByNombre(genero.getNombre())){
             throw new IllegalArgumentException("Ya existe un genero con ese nombre.");
         }
 
-        return this.generoRepository.actualizar(id, genero);
+        if(!this.generoRepository.existsById(id)){
+            throw new IllegalArgumentException("No existe genero con ese ID.");
+        }
+
+        return this.generoRepository.save(genero);
 
     }
 
     @Override
     public  Optional<Genero> buscarPorNombre(String nombre) {
-        return this.generoRepository.buscarPorNombre(nombre);
+        return this.generoRepository.findByNombre(nombre);
+    }
+
+    @Override
+    public boolean existePorNombre(String nombre) {
+        return this.generoRepository.existsByNombre(nombre);
     }
 
 }

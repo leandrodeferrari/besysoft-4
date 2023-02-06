@@ -11,5 +11,6 @@ public interface IGeneroService {
     Genero crear(Genero genero);
     Genero actualizar(Long id, Genero genero);
     Optional<Genero> buscarPorNombre(String nombre);
+    boolean existePorNombre(String nombre);
 
 }
