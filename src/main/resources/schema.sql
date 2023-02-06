@@ -39,5 +39,6 @@ CREATE TABLE IF NOT EXISTS personajes_peliculas_series(
     PELICULA_SERIE_ID BIGINT NOT NULL,
     CONSTRAINT PK_personajes_peliculas_series_id PRIMARY KEY(ID),
     CONSTRAINT FK_personajes_peliculas_series_personaje_id FOREIGN KEY(PERSONAJE_ID) REFERENCES ejercicio_4.personajes(ID),
-    CONSTRAINT FK_personajes_peliculas_series_pelicula_serie_id FOREIGN KEY(PELICULA_SERIE_ID) REFERENCES ejercicio_4.peliculas_series(ID)
+    CONSTRAINT FK_personajes_peliculas_series_pelicula_serie_id FOREIGN KEY(PELICULA_SERIE_ID) REFERENCES ejercicio_4.peliculas_series(ID),
+    CONSTRAINT UQ_personajes_peliculas_series_personaje_id_pelicula_serie_id UNIQUE(PERSONAJE_ID, PELICULA_SERIE_ID)
 );
