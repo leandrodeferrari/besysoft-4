@@ -31,8 +31,11 @@ public class Personaje implements Serializable {
     private String historia;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "personajes")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "personajes")
     private List<PeliculaSerie> peliculasSeries;
+
+    public Personaje() {
+    }
 
     public Personaje(Long id, String nombre, Byte edad, Double peso, String historia) {
         this.id = id;

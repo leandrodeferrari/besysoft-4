@@ -1,7 +1,7 @@
 package com.besysoft.bootcamp.service.impl;
 
 import com.besysoft.bootcamp.domain.Personaje;
-import com.besysoft.bootcamp.repository.IPersonajeRepository;
+import com.besysoft.bootcamp.repository.memory.IPersonajeRepository;
 import com.besysoft.bootcamp.service.IPersonajeService;
 import com.besysoft.bootcamp.util.PersonajeUtil;
 import com.besysoft.bootcamp.util.ValidacionGeneralUtil;

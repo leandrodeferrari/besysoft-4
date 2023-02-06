@@ -1,7 +1,7 @@
-package com.besysoft.bootcamp.repository.impl;
+package com.besysoft.bootcamp.repository.memory.impl;
 
 import com.besysoft.bootcamp.domain.Genero;
-import com.besysoft.bootcamp.repository.IGeneroRepository;
+import com.besysoft.bootcamp.repository.memory.IGeneroRepository;
 
 import org.springframework.stereotype.Repository;
 

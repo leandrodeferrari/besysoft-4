@@ -2,7 +2,7 @@ package com.besysoft.bootcamp.service.impl;
 
 import com.besysoft.bootcamp.domain.Genero;
 import com.besysoft.bootcamp.domain.PeliculaSerie;
-import com.besysoft.bootcamp.repository.IPeliculaSerieRepository;
+import com.besysoft.bootcamp.repository.memory.IPeliculaSerieRepository;
 import com.besysoft.bootcamp.service.IGeneroService;
 import com.besysoft.bootcamp.service.IPeliculaSerieService;
 import com.besysoft.bootcamp.util.FechaUtil;

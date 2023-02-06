@@ -36,13 +36,16 @@ public class PeliculaSerie implements Serializable {
     private Genero genero;
 
     @JsonIgnore
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "personajes_peliculas_series",
             joinColumns = @JoinColumn(name = "PELICULA_SERIE_ID"),
             inverseJoinColumns = @JoinColumn(name = "PERSONAJE_ID")
     )
     private List<Personaje> personajes;
+
+    public PeliculaSerie() {
+    }
 
     public PeliculaSerie(Long id, String titulo, LocalDate fechaDeCreacion, Byte calificacion, Genero genero) {
         this.id = id;

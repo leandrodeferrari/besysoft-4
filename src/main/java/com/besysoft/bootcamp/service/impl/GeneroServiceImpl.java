@@ -1,7 +1,7 @@
 package com.besysoft.bootcamp.service.impl;
 
 import com.besysoft.bootcamp.domain.Genero;
-import com.besysoft.bootcamp.repository.IGeneroRepository;
+import com.besysoft.bootcamp.repository.memory.IGeneroRepository;
 import com.besysoft.bootcamp.service.IGeneroService;
 import com.besysoft.bootcamp.util.GeneroUtil;
 import com.besysoft.bootcamp.util.ValidacionGeneralUtil;

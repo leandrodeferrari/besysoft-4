@@ -1,4 +1,4 @@
-package com.besysoft.bootcamp.repository;
+package com.besysoft.bootcamp.repository.memory;
 
 import com.besysoft.bootcamp.domain.Genero;
 

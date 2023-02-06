@@ -16,6 +16,9 @@ public class Genero implements Serializable {
     @Column(length = 30, name = "NOMBRE", nullable = false, unique = true)
     private String nombre;
 
+    public Genero() {
+    }
+
     public Genero(Long id, String nombre) {
         this.id = id;
         this.nombre = nombre;

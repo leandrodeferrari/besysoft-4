@@ -1,7 +1,7 @@
-package com.besysoft.bootcamp.repository.impl;
+package com.besysoft.bootcamp.repository.memory.impl;
 
 import com.besysoft.bootcamp.domain.Personaje;
-import com.besysoft.bootcamp.repository.IPersonajeRepository;
+import com.besysoft.bootcamp.repository.memory.IPersonajeRepository;
 
 import org.springframework.stereotype.Repository;
 

@@ -1,9 +1,9 @@
-package com.besysoft.bootcamp.repository.impl;
+package com.besysoft.bootcamp.repository.memory.impl;
 
 import com.besysoft.bootcamp.domain.Genero;
 import com.besysoft.bootcamp.domain.PeliculaSerie;
-import com.besysoft.bootcamp.repository.IGeneroRepository;
-import com.besysoft.bootcamp.repository.IPeliculaSerieRepository;
+import com.besysoft.bootcamp.repository.memory.IGeneroRepository;
+import com.besysoft.bootcamp.repository.memory.IPeliculaSerieRepository;
 import com.besysoft.bootcamp.util.FechaUtil;
 
 import org.springframework.stereotype.Repository;
