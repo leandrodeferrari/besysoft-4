@@ -47,12 +47,8 @@ public class GeneroRepositoryImpl implements IGeneroRepository {
     @Override
     public Genero actualizar(Long id, Genero genero) {
 
-        if(existePorId(id)){
-            this.generos.stream()
-                    .filter(g -> g.getId().equals(id)).findFirst().get().setNombre(genero.getNombre());
-        } else {
-            throw new IllegalArgumentException("No existe genero con ese ID.");
-        }
+        this.generos.stream()
+                .filter(g -> g.getId().equals(id)).findFirst().get().setNombre(genero.getNombre());
 
         return genero;
 

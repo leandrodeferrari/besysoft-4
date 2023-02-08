@@ -17,9 +17,9 @@ CREATE TABLE IF NOT EXISTS personajes(
     EDAD TINYINT UNSIGNED NOT NULL,
     PESO DOUBLE NOT NULL,
     HISTORIA VARCHAR(255) NOT NULL,
-    CONSTRAINT CK_personajes_edad CHECK(EDAD <= 150),
-    CONSTRAINT CK_personajes_peso CHECK(PESO <= 500.0),
-    CONSTRAINT PK_personajes_id PRIMARY KEY(ID)
+    CONSTRAINT PK_personajes_id PRIMARY KEY(ID),
+    CONSTRAINT CK_personajes_edad CHECK(EDAD <= 127),
+    CONSTRAINT CK_personajes_peso CHECK(PESO <= 500.0)
 );
 
 CREATE TABLE IF NOT EXISTS peliculas_series(
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS peliculas_series(
     CALIFICACION TINYINT UNSIGNED NOT NULL,
     GENERO_ID BIGINT NOT NULL,
     CONSTRAINT PK_peliculas_series_id PRIMARY KEY(ID),
-    CONSTRAINT FK_peliculas_series_generos_genero_id FOREIGN KEY(GENERO_ID) REFERENCES ejercicio_4.generos(ID),
+    CONSTRAINT FK_peliculas_series_genero_id FOREIGN KEY(GENERO_ID) REFERENCES ejercicio_4.generos(ID),
     CONSTRAINT UQ_peliculas_series_titulo UNIQUE(TITULO),
 	CONSTRAINT CK_peliculas_series_calificacion CHECK(CALIFICACION <= 5)
 );

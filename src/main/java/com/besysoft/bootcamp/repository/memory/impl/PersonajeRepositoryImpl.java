@@ -74,28 +74,20 @@ public class PersonajeRepositoryImpl implements IPersonajeRepository {
     @Override
     public Personaje actualizar(Long id, Personaje personaje) {
 
-        if(existePorId(id)){
+        this.personajes.forEach((Personaje p) -> {
 
-            this.personajes.forEach((Personaje p) -> {
+            if(p.getId().equals(id)){
 
-                if(p.getId().equals(id)){
+                p.setEdad(personaje.getEdad());
+                p.setNombre(personaje.getNombre());
+                p.setPeso(personaje.getPeso());
+                p.setHistoria(personaje.getHistoria());
 
-                    p.setEdad(personaje.getEdad());
-                    p.setNombre(personaje.getNombre());
-                    p.setPeso(personaje.getPeso());
-                    p.setHistoria(personaje.getHistoria());
+            }
 
-                }
+        });
 
-            });
-
-            return personaje;
-
-        } else {
-
-            throw new IllegalArgumentException("No existe personaje con ese ID.");
-
-        }
+        return personaje;
 
     }
 

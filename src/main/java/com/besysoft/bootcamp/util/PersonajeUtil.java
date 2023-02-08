@@ -43,6 +43,10 @@ public class PersonajeUtil {
             throw new IllegalArgumentException("El peso no puede ser menor a 0.");
         }
 
+        if(peso > 500){
+            throw new IllegalArgumentException("El peso no puede ser mayor a 500.");
+        }
+
     }
 
     public static void validarHistoria(String historia){

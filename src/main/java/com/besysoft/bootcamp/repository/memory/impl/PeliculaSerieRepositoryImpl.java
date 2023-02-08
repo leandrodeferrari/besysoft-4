@@ -92,28 +92,20 @@ public class PeliculaSerieRepositoryImpl implements IPeliculaSerieRepository {
     @Override
     public PeliculaSerie actualizar(Long id, PeliculaSerie peliculaSerie) {
 
-        if(existePorId(id)){
+        this.peliculasSeries.forEach((PeliculaSerie ps) -> {
 
-            this.peliculasSeries.forEach((PeliculaSerie ps) -> {
+            if(ps.getId().equals(id)){
 
-                if(ps.getId().equals(id)){
+                ps.setTitulo(peliculaSerie.getTitulo());
+                ps.setCalificacion(peliculaSerie.getCalificacion());
+                ps.setFechaDeCreacion(peliculaSerie.getFechaDeCreacion());
+                ps.setGenero(peliculaSerie.getGenero());
 
-                    ps.setTitulo(peliculaSerie.getTitulo());
-                    ps.setCalificacion(peliculaSerie.getCalificacion());
-                    ps.setFechaDeCreacion(peliculaSerie.getFechaDeCreacion());
-                    ps.setGenero(peliculaSerie.getGenero());
+            }
 
-                }
+        });
 
-            });
-
-            return peliculaSerie;
-
-        } else {
-
-            throw new IllegalArgumentException("No existe pelicula/serie con ese ID.");
-
-        }
+        return peliculaSerie;
 
     }
 
