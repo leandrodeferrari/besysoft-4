@@ -33,8 +33,10 @@ public class PersonajeServiceImpl implements IPersonajeService {
         }
 
         if(nombre != null){
+            PersonajeUtil.validarNombreVacio(nombre);
             return this.personajeRepository.findAllByNombre(nombre);
         } else {
+            PersonajeUtil.validarEdadMinima(edad);
             return this.personajeRepository.findAllByEdad(edad);
         }
 

@@ -56,6 +56,8 @@ public class PeliculaSerieServiceImpl implements IPeliculaSerieService {
 
         if(titulo != null){
 
+            PeliculaSerieUtil.validarTituloVacio(titulo);
+
             List<PeliculaSerie> peliculasSeries = new ArrayList<>();
 
             Optional<PeliculaSerie> optionalPeliculaSerie = this.peliculaSerieRepository.findByTitulo(titulo);
@@ -73,6 +75,8 @@ public class PeliculaSerieServiceImpl implements IPeliculaSerieService {
             }
 
         } else {
+
+            PeliculaSerieUtil.validarNombreGeneroVacio(nombreGenero);
 
             if(this.generoService.existePorNombre(nombreGenero)){
 

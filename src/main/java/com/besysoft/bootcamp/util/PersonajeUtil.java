@@ -19,6 +19,12 @@ public class PersonajeUtil {
             throw new IllegalArgumentException("La edad no puede ser nula.");
         }
 
+        validarEdadMinima(edad);
+
+    }
+
+    public static void validarEdadMinima(Byte edad){
+
         if(edad < 0){
             throw new IllegalArgumentException("La edad no puede ser menor a 0.");
         }
@@ -29,6 +35,14 @@ public class PersonajeUtil {
 
         if(nombre.isBlank()){
             throw new IllegalArgumentException("El nombre no puede ser nulo o vacío.");
+        }
+
+    }
+
+    public static void validarNombreVacio(String nombre){
+
+        if(nombre.isEmpty()){
+            throw new IllegalArgumentException("El nombre no puede ser vacío.");
         }
 
     }

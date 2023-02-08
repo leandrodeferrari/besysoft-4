@@ -32,4 +32,20 @@ public class PeliculaSerieUtil {
 
     }
 
+    public static void validarTituloVacio(String titulo){
+
+        if(titulo.isEmpty()){
+            throw new IllegalArgumentException("El título no puede ser vacío.");
+        }
+
+    }
+
+    public static void validarNombreGeneroVacio(String nombreGenero){
+
+        if(nombreGenero.isEmpty()){
+            throw new IllegalArgumentException("El nombre del genero, no puede ser vacío.");
+        }
+
+    }
+
 }

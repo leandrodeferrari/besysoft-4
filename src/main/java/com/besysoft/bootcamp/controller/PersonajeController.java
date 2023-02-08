@@ -23,8 +23,10 @@ public class PersonajeController {
 
         try {
             return ResponseEntity.ok(this.personajeService.buscarPorFiltros(nombre, edad));
-        } catch(RuntimeException ex){
+        } catch (IllegalArgumentException ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
+        } catch(RuntimeException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
         }
 
     }
@@ -35,8 +37,10 @@ public class PersonajeController {
 
         try {
             return ResponseEntity.ok(this.personajeService.buscarPorEdades(desde, hasta));
-        }catch (IllegalArgumentException ex){
+        } catch (IllegalArgumentException ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
+        } catch (RuntimeException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
         }
 
     }
@@ -48,6 +52,8 @@ public class PersonajeController {
             return ResponseEntity.status(HttpStatus.CREATED).body(this.personajeService.crear(personaje));
         } catch (IllegalArgumentException ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
+        } catch (RuntimeException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
         }
 
     }
@@ -60,6 +66,8 @@ public class PersonajeController {
             return ResponseEntity.ok(this.personajeService.actualizar(id, personaje));
         } catch (IllegalArgumentException ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
+        } catch (RuntimeException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
         }
 
     }

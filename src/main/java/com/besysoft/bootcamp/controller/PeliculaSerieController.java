@@ -22,10 +22,11 @@ public class PeliculaSerieController {
                                              @RequestParam(required = false) String nombreGenero){
 
         try {
-            return ResponseEntity.ok
-                    (this.peliculaSerieService.buscarPorFiltros(titulo, nombreGenero));
-        } catch(RuntimeException ex){
+            return ResponseEntity.ok(this.peliculaSerieService.buscarPorFiltros(titulo, nombreGenero));
+        } catch (IllegalArgumentException ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
+        } catch(RuntimeException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
         }
 
     }
@@ -38,6 +39,8 @@ public class PeliculaSerieController {
             return ResponseEntity.ok(this.peliculaSerieService.buscarPorFechas(desde, hasta));
         } catch (IllegalArgumentException ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
+        } catch (RuntimeException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
         }
 
     }
@@ -50,6 +53,8 @@ public class PeliculaSerieController {
             return ResponseEntity.ok(this.peliculaSerieService.buscarPorCalificaciones(desde, hasta));
         } catch (IllegalArgumentException ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
+        } catch (RuntimeException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
         }
 
     }
@@ -61,6 +66,8 @@ public class PeliculaSerieController {
             return ResponseEntity.status(HttpStatus.CREATED).body(this.peliculaSerieService.crear(peliculaSerie));
         } catch (IllegalArgumentException ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
+        } catch (RuntimeException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
         }
 
     }
@@ -73,6 +80,8 @@ public class PeliculaSerieController {
             return ResponseEntity.ok(this.peliculaSerieService.actualizar(id, peliculaSerie));
         } catch (IllegalArgumentException ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
+        } catch (RuntimeException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
         }
 
     }

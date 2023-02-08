@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/generos")
 public class GeneroController {
@@ -20,8 +18,14 @@ public class GeneroController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Genero>> obtenerTodos(){
-        return ResponseEntity.ok(this.generoService.obtenerTodos());
+    public ResponseEntity<?> obtenerTodos(){
+
+        try {
+            return ResponseEntity.ok(this.generoService.obtenerTodos());
+        } catch (RuntimeException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
+        }
+
     }
 
     @PostMapping
@@ -31,6 +35,8 @@ public class GeneroController {
             return ResponseEntity.status(HttpStatus.CREATED).body(this.generoService.crear(genero));
         } catch (IllegalArgumentException ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
+        } catch (RuntimeException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
         }
 
     }
@@ -43,6 +49,8 @@ public class GeneroController {
             return ResponseEntity.ok(this.generoService.actualizar(id, genero));
         } catch (IllegalArgumentException ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
+        } catch (RuntimeException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
         }
 
     }
