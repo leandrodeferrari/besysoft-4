@@ -27,7 +27,7 @@ public class Personaje implements Serializable {
     @Column(name = "PESO", nullable = false)
     private Double peso;
 
-    @Column(name = "HISTORIA", nullable = false)
+    @Column(length = 255, name = "HISTORIA", nullable = false)
     private String historia;
 
     @JsonIgnore

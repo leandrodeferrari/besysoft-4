@@ -11,6 +11,7 @@ import com.besysoft.bootcamp.util.ValidacionGeneralUtil;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 
@@ -31,6 +32,7 @@ public class PeliculaSerieServiceImpl implements IPeliculaSerieService {
         this.peliculaSerieRepository = peliculaSerieRepository;
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<PeliculaSerie> buscarPorFiltros(String titulo, String nombreGenero) {
 
@@ -48,7 +50,7 @@ public class PeliculaSerieServiceImpl implements IPeliculaSerieService {
 
             } else {
 
-                throw new IllegalArgumentException("No existe género con ese nombre.");
+                throw new IllegalArgumentException("No existe genero con ese nombre.");
 
             }
 
@@ -94,6 +96,7 @@ public class PeliculaSerieServiceImpl implements IPeliculaSerieService {
 
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<PeliculaSerie> buscarPorFechas(String desde, String hasta) {
 
@@ -105,6 +108,7 @@ public class PeliculaSerieServiceImpl implements IPeliculaSerieService {
 
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<PeliculaSerie> buscarPorCalificaciones(Byte desde, Byte hasta) {
 
@@ -116,6 +120,7 @@ public class PeliculaSerieServiceImpl implements IPeliculaSerieService {
 
     }
 
+    @Transactional(readOnly = false)
     @Override
     public PeliculaSerie crear(PeliculaSerie peliculaSerie) {
 
@@ -139,6 +144,7 @@ public class PeliculaSerieServiceImpl implements IPeliculaSerieService {
 
     }
 
+    @Transactional(readOnly = false)
     @Override
     public PeliculaSerie actualizar(Long id, PeliculaSerie peliculaSerie) {
 

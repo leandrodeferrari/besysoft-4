@@ -8,6 +8,7 @@ import com.besysoft.bootcamp.util.ValidacionGeneralUtil;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class PersonajeServiceImpl implements IPersonajeService {
         this.personajeRepository = personajeRepository;
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<Personaje> buscarPorFiltros(String nombre, Byte edad) {
 
@@ -42,6 +44,7 @@ public class PersonajeServiceImpl implements IPersonajeService {
 
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<Personaje> buscarPorEdades(Byte desde, Byte hasta) {
 
@@ -53,6 +56,7 @@ public class PersonajeServiceImpl implements IPersonajeService {
 
     }
 
+    @Transactional(readOnly = false)
     @Override
     public Personaje crear(Personaje personaje) {
 
@@ -63,6 +67,7 @@ public class PersonajeServiceImpl implements IPersonajeService {
 
     }
 
+    @Transactional(readOnly = false)
     @Override
     public Personaje actualizar(Long id, Personaje personaje) {
 

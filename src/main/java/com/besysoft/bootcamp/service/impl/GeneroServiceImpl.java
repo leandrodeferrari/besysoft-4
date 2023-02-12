@@ -8,6 +8,7 @@ import com.besysoft.bootcamp.util.ValidacionGeneralUtil;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,11 +23,13 @@ public class GeneroServiceImpl implements IGeneroService {
         this.generoRepository = generoRepository;
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<Genero> obtenerTodos() {
         return this.generoRepository.findAll();
     }
 
+    @Transactional(readOnly = false)
     @Override
     public Genero crear(Genero genero) {
 
@@ -41,6 +44,7 @@ public class GeneroServiceImpl implements IGeneroService {
 
     }
 
+    @Transactional(readOnly = false)
     @Override
     public Genero actualizar(Long id, Genero genero) {
 
@@ -60,11 +64,13 @@ public class GeneroServiceImpl implements IGeneroService {
 
     }
 
+    @Transactional(readOnly = true)
     @Override
     public  Optional<Genero> buscarPorNombre(String nombre) {
         return this.generoRepository.findByNombre(nombre);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public boolean existePorNombre(String nombre) {
         return this.generoRepository.existsByNombre(nombre);
